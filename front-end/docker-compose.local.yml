@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  frontend:
+    image: jalvarez/mern-project-front:local
+    container_name: mern-project-front
+    build:
+      context: ./
+      dockerfile: ./Dockerfile.local
+    environment:
+      CHOKIDAR_USEPOLLING: "true"      
+    ports:
+      - 8887:8000
+    volumes: 
+      - ./src/:/app/src
+    

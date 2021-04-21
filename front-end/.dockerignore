@@ -1,0 +1,11 @@
+node_modules
+npm-debug.log
+Dockerfile
+Dockerfile.local
+Dockerfile.dev
+Dockerfile.prod
+docker-compose.local.yml
+docker-compose.dev.yml
+docker-compose.prod.yml
+.dockerignore
+test

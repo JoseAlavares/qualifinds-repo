@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:4.1.8-xenial
+    container_name: qualifind-db
+    environment:
+    #- MONGO_INITDB_ROOT_USERNAME=admin
+    #- MONGO_INITDB_ROOT_PASSWORD=admin
+    - MONGO_INITDB_DATABASE=qualifind-db
+    networks:
+    - qualifind-project
+    ports:
+    - "27018:27017"
+
+  backend:
+    image: jalvarez/qualifind-api:local
+    container_name: qualifind-api
+    restart: unless-stopped
+    command: bash -c "node src/db-init.js && pm2-runtime src/index.js"
+    environment:
+    - JWT_PASSWORD=12345
+    build: 
+      context: ./
+      dockerfile: ./Dockerfile.local
+    ports:
+    - "3335:3000"
+    volumes: 
+    - ./src:/home/node/app/src
+    depends_on:
+    - mongo
+    networks:
+    - qualifind-project
+
+networks:
+  qualifind-project:
+    driver: bridge

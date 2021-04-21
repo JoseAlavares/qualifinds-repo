@@ -1,0 +1,12 @@
+FROM node:14.16.0
+LABEL maintainer="Jose Francisco Alvarez Valdez<alvaresvaldes89@outoolook.es>"
+RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+WORKDIR /home/node/app
+COPY package*.json ./
+COPY src/index.js .
+USER node
+RUN npm install
+USER root
+RUN npm install -g pm2
+EXPOSE 3000
+CMD ["node", "src/db-init.js"]
