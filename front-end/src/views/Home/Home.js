@@ -40,7 +40,7 @@ const Home = (props) => {
                                         outline 
                                         color="white" 
                                         className="mb-5" 
-                                        onClick={() => {props.history.push("/list-user")}}
+                                        onClick={() => {props.history.push("/todo")}}
                                         >
                                         <MDBIcon icon="clone" className="mr-2"></MDBIcon> 
                                         Lista de TODO´s
