@@ -1,5 +1,17 @@
 # Proyecto MERN
 
+## Author
+Jose Francisco Alvarez Valdez alvaresvaldes89@outlook.es
+
+## Credentials for the login
+```
+user: alvaresvaldes89@gmail.com
+password: admin
+
+user: alvaresvaldes89@outlook.es
+password: admin
+````
+
 ## Requirements
   - Docker
   - docker-compose
